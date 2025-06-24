@@ -1,0 +1,29 @@
+<div
+  class="page-wrapper"
+  id="main-wrapper"
+  data-layout="vertical"
+  data-navbarbg="skin6"
+  data-sidebartype="full"
+  data-sidebar-position="fixed"
+  data-header-position="fixed"
+>
+  <!-- App Topstrip -->
+  <app-topstrip></app-topstrip>
+
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Main wrapper -->
+  <div class="body-wrapper">
+    <!-- Header -->
+    <app-header></app-header>
+
+    <!-- Main content -->
+    <div class="body-wrapper-inner flex-1">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- Footer -->
+    <app-footer></app-footer>
+  </div>
+</div>

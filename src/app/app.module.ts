@@ -1,18 +1,46 @@
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LoginComponent } from './components/login/login.component';
+import { MainlayoutComponent } from './components/mainlayout/mainlayout.component';
+import { TopstripComponent } from './components/topstrip/topstrip.component';
+import { StudentsComponent } from './pages/students/students.component';
+import { TeachersComponent } from './pages/teachers/teachers.component';
+import { ClassesComponent } from './pages/classes/classes.component';
+import { UsersComponent } from './pages/users/users.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    SidebarComponent,
+    DashboardComponent,
+    LoginComponent,
+    MainlayoutComponent,
+    TopstripComponent,
+    UsersComponent,
+    StudentsComponent,
+    TeachersComponent,
+    ClassesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule 
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
