@@ -1,29 +1,31 @@
-<div
-  class="page-wrapper"
-  id="main-wrapper"
-  data-layout="vertical"
-  data-navbarbg="skin6"
-  data-sidebartype="full"
-  data-sidebar-position="fixed"
-  data-header-position="fixed"
->
-  <!-- App Topstrip -->
-  <app-topstrip></app-topstrip>
+   <!-- Page wrapper starts -->
+   <div class="page-wrapper">
 
-  <!-- Sidebar -->
-  <app-sidebar></app-sidebar>
-
-  <!-- Main wrapper -->
-  <div class="body-wrapper">
-    <!-- Header -->
     <app-header></app-header>
 
-    <!-- Main content -->
-    <div class="body-wrapper-inner flex-1">
-      <router-outlet></router-outlet>
-    </div>
+    <!-- Main container starts -->
+    <div class="main-container">
 
-    <!-- Footer -->
-    <app-footer></app-footer>
+      <app-sidebar></app-sidebar>
+
+      <!-- App container starts -->
+      <div class="app-container">
+
+       <app-breadcrumb></app-breadcrumb>
+
+        <!-- App body starts -->
+        <div class="app-body">
+
+          <router-outlet></router-outlet>
+
+        </div>
+        <!-- App body ends -->
+      <app-footer></app-footer>
+
+      </div>
+      <!-- App container ends -->
+
+    </div>
+    <!-- Main container ends -->
+
   </div>
-</div>

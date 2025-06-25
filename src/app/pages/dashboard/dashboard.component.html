@@ -1,6 +1,6 @@
-<div card body>
+<!-- <div card body>
 <div class="container-fluid">
-          <!--  Row 1 -->
+          
           <div class="row">
             <div class="col-lg-8">
               <div class="card w-100">
@@ -249,13 +249,13 @@
               </div>
             </div>
             <div class="col-lg-6">
-              <!-- Card -->
+            
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title mb-0">Recent Comments</h4>
                 </div>
                 <div class="comment-widgets scrollable mb-2 common-widget" style="height: 465px" data-simplebar="">
-                  <!-- Comment Row -->
+                
                   <div class="d-flex flex-row comment-row border-bottom p-3 gap-3">
                     <div>
                       <span><img src="./assets/images/profile/user-3.jpg" class="rounded-circle" alt="user"
@@ -293,7 +293,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Comment Row -->
+                  
                   <div class="d-flex flex-row comment-row border-bottom active p-3 gap-3">
                     <div>
                       <span><img src="./assets/images/profile/user-5.jpg" class="rounded-circle" alt="user"
@@ -331,7 +331,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Comment Row -->
+                
                   <div class="d-flex flex-row comment-row border-bottom p-3 gap-3">
                     <div>
                       <span><img src="./assets/images/profile/user-6.jpg" class="rounded-circle" alt="user"
@@ -369,7 +369,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Comment Row -->
+                  
                   <div class="d-flex flex-row comment-row p-3 gap-3">
                     <div>
                       <span><img src="./assets/images/profile/user-4.jpg" class="rounded-circle" alt="user"
@@ -482,4 +482,398 @@
                 class="pe-1 text-primary text-decoration-underline">Wrappixel.com</a> Distributed by <a href="https://themewagon.com" target="_blank" >ThemeWagon</a></p>
           </div>
         </div>
-    
+     -->
+
+
+
+
+<!-- Row starts -->
+<div class="row gx-3">
+  <div class="col-xxl-12 col-sm-12">
+    <div class="card mb-3 bg-2">
+      <div class="card-body">
+        <div class="py-4 px-3 text-white">
+          <h6>{{ 'GREETING' | translate }}</h6>
+          <h2>{{ 'USER_NAME' | translate }}</h2>
+          <h5>{{ 'TODAY_SCHEDULE' | translate }}</h5>
+          <div class="mt-4 d-flex gap-3">
+            <div class="d-flex align-items-center">
+              <div class="icon-box lg bg-arctic rounded-3 me-3">
+                <i class="ri-surgical-mask-line fs-4"></i>
+              </div>
+              <div class="d-flex flex-column">
+                <h2 class="m-0 lh-1">9</h2>
+                <p class="m-0">{{ 'PATIENTS' | translate }}</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <div class="icon-box lg bg-lime rounded-3 me-3">
+                <i class="ri-lungs-line fs-4"></i>
+              </div>
+              <div class="d-flex flex-column">
+                <h2 class="m-0 lh-1">3</h2>
+                <p class="m-0">{{ 'SURGERIES' | translate }}</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <div class="icon-box lg bg-peach rounded-3 me-3">
+                <i class="ri-walk-line fs-4"></i>
+              </div>
+              <div class="d-flex flex-column">
+                <h2 class="m-0 lh-1">2</h2>
+                <p class="m-0">{{ 'DISCHARGES' | translate }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Row ends -->
+
+
+<!-- Row starts -->
+<div class="row gx-3">
+  <div class="col-xl-3 col-sm-6 col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="p-2 border border-success rounded-circle me-3">
+            <div class="icon-box md bg-success-subtle rounded-5">
+              <i class="ri-surgical-mask-line fs-4 text-success"></i>
+            </div>
+          </div>
+          <div class="d-flex flex-column">
+            <h2 class="lh-1">890</h2>
+            <p class="m-0">{{ 'NEW_PATIENTS' | translate }}</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-end justify-content-between mt-1">
+          <a class="text-success" href="javascript:void(0);">
+            <span>{{ 'VIEW_ALL' | translate }}</span>
+            <i class="ri-arrow-right-line text-success ms-1"></i>
+          </a>
+          <div class="text-end">
+            <p class="mb-0 text-success">+40%</p>
+            <span class="badge bg-success-subtle text-success small">{{ 'THIS_MONTH' | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-sm-6 col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="p-2 border border-primary rounded-circle me-3">
+            <div class="icon-box md bg-primary-subtle rounded-5">
+              <i class="ri-lungs-line fs-4 text-primary"></i>
+            </div>
+          </div>
+          <div class="d-flex flex-column">
+            <h2 class="lh-1">360</h2>
+            <p class="m-0">{{ 'OPD_PATIENTS' | translate }}</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-end justify-content-between mt-1">
+          <a class="text-primary" href="javascript:void(0);">
+            <span>{{ 'VIEW_ALL' | translate }}</span>
+            <i class="ri-arrow-right-line ms-1"></i>
+          </a>
+          <div class="text-end">
+            <p class="mb-0 text-primary">+30%</p>
+            <span class="badge bg-primary-subtle text-primary small">{{ 'THIS_MONTH' | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-sm-6 col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="p-2 border border-danger rounded-circle me-3">
+            <div class="icon-box md bg-danger-subtle rounded-5">
+              <i class="ri-microscope-line fs-4 text-danger"></i>
+            </div>
+          </div>
+          <div class="d-flex flex-column">
+            <h2 class="lh-1">980</h2>
+            <p class="m-0">{{ 'LAB_TESTS' | translate }}</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-end justify-content-between mt-1">
+          <a class="text-danger" href="javascript:void(0);">
+            <span>{{ 'VIEW_ALL' | translate }}</span>
+            <i class="ri-arrow-right-line ms-1"></i>
+          </a>
+          <div class="text-end">
+            <p class="mb-0 text-danger">+60%</p>
+            <span class="badge bg-danger-subtle text-danger small">{{ 'THIS_MONTH' | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-sm-6 col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="p-2 border border-warning rounded-circle me-3">
+            <div class="icon-box md bg-warning-subtle rounded-5">
+              <i class="ri-money-dollar-circle-line fs-4 text-warning"></i>
+            </div>
+          </div>
+          <div class="d-flex flex-column">
+            <h2 class="lh-1">$98000</h2>
+            <p class="m-0">{{ 'TOTAL_EARNINGS' | translate }}</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-end justify-content-between mt-1">
+          <a class="text-warning" href="javascript:void(0);">
+            <span>{{ 'VIEW_ALL' | translate }}</span>
+            <i class="ri-arrow-right-line ms-1"></i>
+          </a>
+          <div class="text-end">
+            <p class="mb-0 text-warning">+20%</p>
+            <span class="badge bg-warning-subtle text-warning small">{{ 'THIS_MONTH' | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Row ends -->
+
+
+<!-- Row starts -->
+<div class="row gx-3">
+  <div class="col-xl-2 col-sm-6 col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-column align-items-center">
+          <div class="icon-box md rounded-5 bg-primary mb-3">
+            <i class="ri-verified-badge-line fs-4 lh-1"></i>
+          </div>
+          <h6>{{ 'APPOINTMENTS' | translate }}</h6>
+          <h2 class="text-primary m-0">639</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-2 col-sm-6 col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-column align-items-center">
+          <div class="icon-box md rounded-5 bg-primary mb-3">
+            <i class="ri-stethoscope-line fs-4 lh-1"></i>
+          </div>
+          <h6>{{ 'DOCTORS' | translate }}</h6>
+          <h2 class="text-primary m-0">83</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-2 col-sm-6 col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-column align-items-center">
+          <div class="icon-box md rounded-5 bg-primary mb-3">
+            <i class="ri-psychotherapy-line fs-4 lh-1"></i>
+          </div>
+          <h6>{{ 'STAFF' | translate }}</h6>
+          <h2 class="text-primary m-0">296</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-2 col-sm-6 col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-column align-items-center">
+          <div class="icon-box md rounded-5 bg-primary mb-3">
+            <i class="ri-lungs-line fs-4 lh-1"></i>
+          </div>
+          <h6>{{ 'OPERATIONS' | translate }}</h6>
+          <h2 class="text-primary m-0">49</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-2 col-sm-6 col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-column align-items-center">
+          <div class="icon-box md rounded-5 bg-primary mb-3">
+            <i class="ri-hotel-bed-line fs-4 lh-1"></i>
+          </div>
+          <h6>{{ 'ADMITTED' | translate }}</h6>
+          <h2 class="text-primary m-0">372</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-2 col-sm-6 col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-column align-items-center">
+          <div class="icon-box md rounded-5 bg-primary mb-3">
+            <i class="ri-walk-line fs-4 lh-1"></i>
+          </div>
+          <h6>{{ 'DISCHARGED' | translate }}</h6>
+          <h2 class="text-primary m-0">253</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Row ends -->
+
+
+<!-- Row starts -->
+<div class="row gx-3">
+  <div class="col-xxl-12 col-sm-12">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5 class="card-title">{{ 'AVAILABLE_BEDS' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <div id="availableBeds"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xxl-6 col-sm-12">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5 class="card-title">{{ 'PATIENTS' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <div id="patients"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xxl-6 col-sm-12">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5 class="card-title">{{ 'TREATMENT_TYPE' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <div id="treatment"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xxl-6 col-sm-12">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5 class="card-title">{{ 'HOSPITAL_EARNINGS' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <!-- Row start -->
+        <div class="row g-3">
+          <div class="col-sm-6 col-12">
+            <div class="border rounded-2 d-flex align-items-center flex-row p-2">
+              <div class="me-2">
+                <div id="sparkline1"></div>
+              </div>
+              <div class="m-0">
+                <div class="d-flex align-items-center">
+                  <h4 class="m-0 fw-bold">$4900</h4>
+                  <div class="ms-2 text-primary d-flex">
+                    <small>20%</small> <i class="ri-arrow-right-up-line ms-1 fw-bold"></i>
+                  </div>
+                </div>
+                <small>{{ 'ONLINE_CONSULTATION' | translate }}</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-12">
+            <div class="border rounded-2 d-flex align-items-center flex-row p-2">
+              <div class="me-2">
+                <div id="sparkline2"></div>
+              </div>
+              <div class="m-0">
+                <div class="d-flex align-items-center">
+                  <div class="fs-4 fw-bold">$750</div>
+                  <div class="ms-2 text-danger d-flex">
+                    <small>26%</small> <i class="ri-arrow-right-down-line ms-1 fw-bold"></i>
+                  </div>
+                </div>
+                <small class="text-dark">{{ 'OVERALL_PURCHASES' | translate }}</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-12">
+            <div class="border rounded-2 d-flex align-items-center flex-row p-2">
+              <div class="me-2">
+                <div id="sparkline3"></div>
+              </div>
+              <div class="m-0">
+                <div class="d-flex align-items-center">
+                  <div class="fs-4 fw-bold">$560</div>
+                  <div class="ms-2 text-primary d-flex">
+                    <small>28%</small> <i class="ri-arrow-right-up-line ms-1 fw-bold"></i>
+                  </div>
+                </div>
+                <small class="text-dark">{{ 'PENDING_INVOICES' | translate }}</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-12">
+            <div class="border rounded-2 d-flex align-items-center flex-row p-2">
+              <div class="me-2">
+                <div id="sparkline4"></div>
+              </div>
+              <div class="m-0">
+                <div class="d-flex align-items-center">
+                  <div class="fs-4 fw-bold">$390</div>
+                  <div class="ms-2 text-primary d-flex">
+                    <small>30%</small> <i class="ri-arrow-right-up-line ms-1 fw-bold"></i>
+                  </div>
+                </div>
+                <small class="text-dark">{{ 'MONTHLY_BILLING' | translate }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Row ends -->
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xxl-3 col-sm-6">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5 class="card-title">{{ 'INSURANCE_CLAIMS' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <div id="claims"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xxl-3 col-sm-6">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5 class="card-title">{{ 'PATIENTS_BY_GENDER' | translate }}</h5>
+      </div>
+      <div class="card-body">
+        <div class="auto-align-graph">
+          <div id="genderAge"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Row ends -->

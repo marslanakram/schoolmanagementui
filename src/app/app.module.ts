@@ -14,9 +14,17 @@ import { TeachersComponent } from './pages/teachers/teachers.component';
 import { ClassesComponent } from './pages/classes/classes.component';
 import { UsersComponent } from './pages/users/users.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { FooterComponent } from './components/footer/footer.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { LoaderComponent } from './components/loader/loader.component';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -31,13 +39,22 @@ import { FooterComponent } from './components/footer/footer.component';
     StudentsComponent,
     TeachersComponent,
     ClassesComponent,
-    FooterComponent
+    FooterComponent,
+    BreadcrumbComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
