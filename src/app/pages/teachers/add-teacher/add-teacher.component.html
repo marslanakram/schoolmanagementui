@@ -1,0 +1,148 @@
+<!-- App body starts -->
+<div class="app-body">
+    <!-- Row starts -->
+    <div class="row gx-3">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">{{ isEditMode ? 'Edit' : 'Add' }} Teacher Details</h5>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()" #teacherForm="ngForm">
+                        <div class="row gx-3">
+
+                            <!-- Teacher ID -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Teacher ID <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" [(ngModel)]="teacher.teacherId" name="teacherId"
+                                    required>
+                            </div>
+
+                            <!-- First Name -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">First Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" [(ngModel)]="teacher.firstName" name="firstName"
+                                    required>
+                            </div>
+
+                            <!-- Last Name -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Last Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" [(ngModel)]="teacher.lastName" name="lastName"
+                                    required>
+                            </div>
+
+                            <!-- Gender -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Gender <span class="text-danger">*</span></label>
+                                <div class="d-flex gap-3 mt-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender"
+                                            [(ngModel)]="teacher.gender" value="Male" required>
+                                        <label class="form-check-label">Male</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender"
+                                            [(ngModel)]="teacher.gender" value="Female">
+                                        <label class="form-check-label">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">User Account <span class="text-danger">*</span></label>
+                                <select class="form-select" name="userId" [(ngModel)]="teacher.userId" required>
+                                    <option value="">Select User</option>
+                                    <option *ngFor="let user of users" [value]="user.id">
+                                        {{ user.firstName }} {{ user.lastName }} ({{ user.email }})
+                                    </option>
+                                </select>
+                            </div>
+
+
+                            <!-- Phone Number -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Phone Number</label>
+                                <input type="text" class="form-control" [(ngModel)]="teacher.phoneNumber"
+                                    name="phoneNumber">
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" [(ngModel)]="teacher.email" name="email">
+                            </div>
+
+                            <!-- Address -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Bio</label>
+                                <input type="text" class="form-control" [(ngModel)]="teacher.bio" name="address">
+                            </div>
+
+                            <!-- Specialization -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Specialization</label>
+                                <input type="text" class="form-control" [(ngModel)]="teacher.specialization"
+                                    name="specialization">
+                            </div>
+
+                            <!-- Qualifications -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Qualifications</label>
+                                <input type="text" class="form-control" [(ngModel)]="teacher.qualifications"
+                                    name="qualifications">
+                            </div>
+
+                            <!-- Hire Date -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Hire Date <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" [(ngModel)]="teacher.hireDate" name="hireDate"
+                                    required>
+                            </div>
+
+                            <!-- End Date -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">End Date</label>
+                                <input type="date" class="form-control" [(ngModel)]="teacher.endDate" name="endDate">
+                            </div>
+
+                            <!-- Bio -->
+                            <div class="col-sm-12 mb-3">
+                                <label class="form-label">Address</label>
+                                <textarea rows="3" class="form-control" [(ngModel)]="teacher.address" name="bio"></textarea>
+                            </div>
+
+                            <!-- Photo URL -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Photo URL</label>
+                                <input type="text" class="form-control" [(ngModel)]="teacher.photoUrl" name="photoUrl">
+                            </div>
+
+                            <!-- Is Active -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3 d-flex align-items-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" [(ngModel)]="teacher.isActive"
+                                        name="isActive" id="isActive">
+                                    <label class="form-check-label" for="isActive">Is Active</label>
+                                </div>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="col-sm-12 mt-3">
+                                <div class="d-flex gap-2 justify-content-end">
+                                    <a routerLink="/teachers" class="btn btn-outline-secondary">Cancel</a>
+                                    <button type="submit" class="btn btn-primary" [disabled]="teacherForm.invalid">
+                                        {{ isEditMode ? 'Update' : 'Add Teacher' }}
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div> <!-- row -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row ends -->
+</div>
+<!-- App body ends -->

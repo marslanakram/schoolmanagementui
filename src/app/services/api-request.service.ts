@@ -11,14 +11,20 @@ import { environment } from 'src/environments/environment';
 export class ApiRequestService {
   BASE_URL = environment.BASE_URL;
 
-  constructor(private http: HttpClient, private loaderService: LoaderService) {}  // Inject LoaderService
+  constructor(private http: HttpClient, private loaderService: LoaderService) { }  // Inject LoaderService
+
+
+
 
   postRequest<T>(uri: string, payload: any): Observable<HttpResponse<T>> {
-    this.loaderService.show();  // Show loader
-    return this.http.post<T>(`${uri}`, payload, { observe: 'response' }).pipe(
-      finalize(() => this.loaderService.hide())  // Hide loader after request finishes
-    );
+    this.loaderService.show();
+    return this.http.post<T>(`${this.BASE_URL}/${uri}`, payload, { observe: 'response' })
+      .pipe(finalize(() => this.loaderService.hide()));
   }
+
+
+
+
 
   getRequest<T>(uri: string, params?: any, autoHideLoader: boolean = true): Observable<HttpResponse<T>> {
     let httpParams = new HttpParams();
@@ -29,37 +35,38 @@ export class ApiRequestService {
         }
       });
     }
-  
-    this.loaderService.show();  
-  
-    return this.http.get<T>(`${uri}`, { observe: 'response', params: httpParams }).pipe(
-      finalize(() => {
-        if (autoHideLoader) {
-          this.loaderService.hide();  
-        }
-      })
-    );
+
+    this.loaderService.show();
+
+    return this.http.get<T>(`${this.BASE_URL}/${uri}`, { observe: 'response', params: httpParams })
+      .pipe(
+        finalize(() => {
+          if (autoHideLoader) this.loaderService.hide();
+        })
+      );
   }
-  
 
   updateRequest<T>(uri: string, data: any): Observable<HttpResponse<T>> {
-    this.loaderService.show();  // Show loader
-    return this.http.put<T>(`${uri}`, data, { observe: 'response' }).pipe(
-      finalize(() => this.loaderService.hide())  // Hide loader after request finishes
-    );
+    this.loaderService.show();
+    return this.http.put<T>(`${this.BASE_URL}/${uri}`, data, { observe: 'response' })
+      .pipe(finalize(() => this.loaderService.hide()));
   }
 
   patchRequest<T>(uri: string, data: any): Observable<HttpResponse<T>> {
-    this.loaderService.show();  // Show loader
-    return this.http.patch<T>(`${uri}`, data, { observe: 'response' }).pipe(
-      finalize(() => this.loaderService.hide())  // Hide loader after request finishes
-    );
+    this.loaderService.show();
+    return this.http.patch<T>(`${this.BASE_URL}/${uri}`, data, { observe: 'response' })
+      .pipe(finalize(() => this.loaderService.hide()));
   }
 
+
+
+
+
+
   deleteRequest<T>(uri: string, data = {}): Observable<HttpResponse<T>> {
-    this.loaderService.show();  // Show loader
-    return this.http.delete<T>(`${uri}`, { observe: 'response', body: data }).pipe(
-      finalize(() => this.loaderService.hide())  // Hide loader after request finishes
-    );
+    this.loaderService.show();
+    return this.http.delete<T>(`${this.BASE_URL}/${uri}`, { observe: 'response', body: data })
+      .pipe(finalize(() => this.loaderService.hide()));
   }
+
 }

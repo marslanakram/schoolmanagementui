@@ -1,0 +1,102 @@
+<div class="app-body">
+  <div class="row gx-3">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header d-flex align-items-center justify-content-between">
+          <h5 class="card-title">Attendance List</h5>
+          <button class="btn btn-primary ms-auto" (click)="openAddModal()">Add Attendance</button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table truncate m-0 align-middle">
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Class</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Notes</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of attendances">
+                  <td>{{ getStudentNameById(item.studentId) }}</td>
+                  <td>{{ getClassNameById(item.classId) }}</td>
+                  <td>{{ item.date | date }}</td>
+                  <td>
+                    <span [ngClass]="item.isPresent ? 'badge bg-success-subtle text-success' : 'badge bg-danger-subtle text-danger'">
+                      {{ item.isPresent ? 'Present' : 'Absent' }}
+                    </span>
+                  </td>
+                  <td>{{ item.notes }}</td>
+                  <td>
+                    <div class="d-inline-flex gap-1">
+                      <button class="btn btn-outline-success btn-sm" (click)="openEditModal(item)">
+                        <i class="ri-edit-box-line"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Add/Edit Modal -->
+          <div class="modal fade" id="attendanceModal" tabindex="-1" aria-labelledby="attendanceModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+              <div class="modal-content">
+                <form (ngSubmit)="submitAttendance()">
+                  <div class="modal-header">
+                    <h5 class="modal-title">{{ isEditMode ? 'Edit' : 'Add' }} Attendance</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label">Student</label>
+                      <select class="form-select" [(ngModel)]="attendance.studentId" name="studentId" required>
+                        <option value="">Select Student</option>
+                        <option *ngFor="let student of students" [value]="student.id">
+                          {{ student.firstName }} {{ student.lastName }} ({{ student.rollNumber }})
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Class</label>
+                      <select class="form-select" [(ngModel)]="attendance.classId" name="classId" required>
+                        <option value="">Select Class</option>
+                        <option *ngFor="let cls of classes" [value]="cls.id">
+                          {{ cls.name }} ({{ getGradeSection(cls.gradeLevel, cls.section) }})
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Date</label>
+                      <input type="date" class="form-control" [(ngModel)]="attendance.date" name="date" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Presence</label>
+                      <select class="form-select" [(ngModel)]="attendance.isPresent" name="isPresent" required>
+                        <option [ngValue]="true">Present</option>
+                        <option [ngValue]="false">Absent</option>
+                      </select>
+                    </div>
+                    <div class="col-md-12">
+                      <label class="form-label">Notes</label>
+                      <textarea class="form-control" [(ngModel)]="attendance.notes" name="notes"></textarea>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Add' }}</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

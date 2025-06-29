@@ -21,6 +21,18 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { AddUserComponent } from './pages/users/add-user/add-user.component';
+import { FormsModule } from '@angular/forms';
+import { AddStudentComponent } from './pages/students/add-student/add-student.component';
+import { AddTeacherComponent } from './pages/teachers/add-teacher/add-teacher.component';
+import { AddClassComponent } from './pages/classes/add-class/add-class.component';
+import { AttendanceComponent } from './pages/attendance/attendance.component';
+import { EnrollmentComponent } from './pages/enrollment/enrollment.component';
+import { GradeComponent } from './pages/grade/grade.component';
+import { SchoolEventComponent } from './pages/school-event/school-event.component';
+import { SubjectComponent } from './pages/subject/subject.component';
+import { TeacherAssignmentComponent } from './pages/teacher-assignment/teacher-assignment.component';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -41,13 +53,24 @@ export function HttpLoaderFactory(http: HttpClient) {
     ClassesComponent,
     FooterComponent,
     BreadcrumbComponent,
-    LoaderComponent
+    LoaderComponent,
+    AddUserComponent,
+    AddStudentComponent,
+    AddTeacherComponent,
+    AddClassComponent,
+    AttendanceComponent,
+    EnrollmentComponent,
+    GradeComponent,
+    SchoolEventComponent,
+    SubjectComponent,
+    TeacherAssignmentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

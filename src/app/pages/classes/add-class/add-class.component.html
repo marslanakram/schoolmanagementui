@@ -1,0 +1,95 @@
+<div class="app-body">
+    <div class="row gx-3">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">{{ isEditMode ? 'Edit' : 'Add' }} Class Details</h5>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()" #classForm="ngForm">
+                        <div class="row gx-3">
+
+                            <!-- <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Class Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="name" [(ngModel)]="classData.name"
+                                    required>
+                            </div> -->
+
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Description</label>
+                                <input type="text" class="form-control" name="description"
+                                    [(ngModel)]="classData.description">
+                            </div>
+
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Academic Year <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" name="academicYear"
+                                    [(ngModel)]="classData.academicYear" required>
+                            </div>
+
+                            <!-- Grade Level Dropdown -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Grade Level <span class="text-danger">*</span></label>
+                                <select class="form-select" name="gradeLevel" [(ngModel)]="classData.gradeLevel"
+                                    required>
+                                    <option *ngFor="let grade of gradeLevels" [value]="grade.value">{{ grade.label }}
+                                    </option>
+                                </select>
+                            </div>
+
+
+                            <!-- Section Dropdown -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Section <span class="text-danger">*</span></label>
+                                <select class="form-select" name="section" [(ngModel)]="classData.section" required>
+                                    <option *ngFor="let sec of sections" [value]="sec.value">{{ sec.label }}</option>
+                                </select>
+                            </div>
+
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Start Date <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" name="startDate"
+                                    [(ngModel)]="classData.startDate" required>
+                            </div>
+
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">End Date <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" name="endDate" [(ngModel)]="classData.endDate"
+                                    required>
+                            </div>
+
+                            <!-- Homeroom Teacher Dropdown -->
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                                <label class="form-label">Homeroom Teacher <span class="text-danger">*</span></label>
+                                <select class="form-select" name="homeroomTeacherId"
+                                    [(ngModel)]="classData.homeroomTeacherId" required>
+                                    <option value="">Select Teacher</option>
+                                    <option *ngFor="let teacher of teachers" [value]="teacher.id">
+                                        {{ teacher.firstName }} {{ teacher.lastName }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-xxl-3 col-lg-4 col-sm-6 d-flex align-items-center mb-3">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="isActive" name="isActive"
+                                        [(ngModel)]="classData.isActive">
+                                    <label class="form-check-label" for="isActive">Is Active</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 mt-3">
+                                <div class="d-flex gap-2 justify-content-end">
+                                    <a routerLink="/classes" class="btn btn-outline-secondary">Cancel</a>
+                                    <button type="submit" class="btn btn-primary" [disabled]="classForm.invalid">
+                                        {{ isEditMode ? 'Update' : 'Add Class' }}
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

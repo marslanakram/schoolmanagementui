@@ -1,0 +1,76 @@
+<div class="app-body">
+  <div class="row gx-3">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header d-flex align-items-center justify-content-between">
+          <h5 class="card-title">Subjects List</h5>
+          <button class="btn btn-primary ms-auto" (click)="openAddModal()">Add Subject</button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table truncate m-0 align-middle">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Code</th>
+                  <th>Description</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let subject of subjects">
+                  <td>{{ subject.name }}</td>
+                  <td>{{ subject.code }}</td>
+                  <td>{{ subject.description }}</td>
+                  <td>
+                    <div class="d-inline-flex gap-1">
+                      <button class="btn btn-outline-success btn-sm" (click)="openEditModal(subject)">
+                        <i class="ri-edit-box-line"></i>
+                      </button>
+                      <button class="btn btn-outline-danger btn-sm" (click)="confirmDelete(subject.id)">
+                        <i class="ri-delete-bin-line"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Add/Edit Modal -->
+          <div class="modal fade" id="subjectModal" tabindex="-1" aria-labelledby="subjectModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+              <div class="modal-content">
+                <form (ngSubmit)="submitSubject()">
+                  <div class="modal-header">
+                    <h5 class="modal-title">{{ isEditMode ? 'Edit' : 'Add' }} Subject</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label">Subject Name</label>
+                      <input type="text" class="form-control" [(ngModel)]="subject.name" name="name" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Subject Code</label>
+                      <input type="text" class="form-control" [(ngModel)]="subject.code" name="code" required />
+                    </div>
+                    <div class="col-md-12">
+                      <label class="form-label">Description</label>
+                      <textarea class="form-control" [(ngModel)]="subject.description" name="description"></textarea>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Add' }}</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

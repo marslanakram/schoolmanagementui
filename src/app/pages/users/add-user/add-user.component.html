@@ -1,0 +1,120 @@
+<!-- App body starts -->
+<div class="app-body">
+
+  <!-- Row starts -->
+  <div class="row gx-3">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">{{ isEditMode ? 'Edit' : 'Add' }} User Details</h5>
+        </div>
+        <div class="card-body">
+
+          <!-- Form starts -->
+          <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <!-- Row starts -->
+            <div class="row gx-3">
+              <div class="col-xxl-3 col-lg-4 col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label" for="firstName">First Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" 
+                    [(ngModel)]="user.firstName" name="firstName" required #firstName="ngModel">
+                  <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="text-danger">
+                    <small *ngIf="firstName.errors?.['required']">First name is required</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xxl-3 col-lg-4 col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label" for="lastName">Last Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" 
+                    [(ngModel)]="user.lastName" name="lastName" required #lastName="ngModel">
+                  <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger">
+                    <small *ngIf="lastName.errors?.['required']">Last name is required</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xxl-3 col-lg-4 col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label" for="email">Email ID <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter Email ID" 
+                    [(ngModel)]="user.email" name="email" required email #email="ngModel">
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                    <small *ngIf="email.errors?.['required']">Email is required</small>
+                    <small *ngIf="email.errors?.['email']">Please enter a valid email</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xxl-3 col-lg-4 col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label" for="phoneNumber">Phone Number <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="phoneNumber" placeholder="Enter Mobile Number" 
+                    [(ngModel)]="user.phoneNumber" name="phoneNumber" required #phoneNumber="ngModel">
+                  <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="text-danger">
+                    <small *ngIf="phoneNumber.errors?.['required']">Phone number is required</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xxl-3 col-lg-4 col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label" for="dateOfBirth">Date of Birth <span class="text-danger">*</span></label>
+                  <input type="date" class="form-control" id="dateOfBirth" 
+                    [(ngModel)]="user.dateOfBirth" name="dateOfBirth" required #dateOfBirth="ngModel">
+                  <div *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)" class="text-danger">
+                    <small *ngIf="dateOfBirth.errors?.['required']">Date of birth is required</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xxl-3 col-lg-4 col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label" for="address">Address</label>
+                  <input type="text" class="form-control" id="address" placeholder="Enter Address" 
+                    [(ngModel)]="user.address" name="address">
+                </div>
+              </div>
+              <div class="col-xxl-3 col-lg-4 col-sm-6" >
+                <div class="mb-3">
+                  <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
+                  <input type="password" class="form-control" id="password" placeholder="Enter Password" 
+                    [(ngModel)]="user.password" name="password" required #password="ngModel">
+                  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                    <small *ngIf="password.errors?.['required']">Password is required</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xxl-3 col-lg-4 col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label" for="role">Role <span class="text-danger">*</span></label>
+                  <select class="form-select" id="role" [(ngModel)]="user.role" name="role" required #role="ngModel">
+                    <option value="">Select Role</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Teacher">Teacher</option>
+                    
+                  </select>
+                  <div *ngIf="role.invalid && (role.dirty || role.touched)" class="text-danger">
+                    <small *ngIf="role.errors?.['required']">Role is required</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="d-flex gap-2 justify-content-end">
+                  <a routerLink="/users" type="button" class="btn btn-outline-secondary">
+                    Cancel
+                  </a>
+                  <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">
+                    {{ isEditMode ? 'Update' : 'Add' }} 
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Row ends -->
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Row ends -->
+
+</div>
+<!-- App body ends -->

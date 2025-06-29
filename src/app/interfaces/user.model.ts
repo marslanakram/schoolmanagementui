@@ -1,18 +1,11 @@
-import { AppClaimDto } from './app-claim.model';
-
-
-
-export interface UserAuthDto {
+export interface UserDTO {
   id: number;
-  userName: string;
   firstName: string;
   lastName: string;
   email: string;
   phoneNumber: string;
-  bearerToken: string;
-  isAuthenticated: boolean;
-  profilePhoto: string;
-  claims: AppClaimDto[];
- 
+  address: string;
+  dateOfBirth: string; 
+  password: string;
+  role: string;
 }
-

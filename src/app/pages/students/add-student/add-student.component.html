@@ -1,0 +1,146 @@
+<!-- App body starts -->
+<div class="app-body">
+  <!-- Row starts -->
+  <div class="row gx-3">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">{{ isEditMode ? 'Edit' : 'Add' }} Student Details</h5>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" #studentForm="ngForm">
+            <!-- Row starts -->
+            <div class="row gx-3">
+              <!-- First Name -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">First Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="student.firstName" name="firstName" required>
+              </div>
+
+              <!-- Last Name -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Last Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="student.lastName" name="lastName" required>
+              </div>
+
+              <!-- Roll Number -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Roll Number <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="student.rollNumber" name="rollNumber" required>
+              </div>
+
+              <!-- Gender -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Gender <span class="text-danger">*</span></label>
+                <div class="d-flex gap-3 mt-1">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" [(ngModel)]="student.gender" value="Male" required>
+                    <label class="form-check-label">Male</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" [(ngModel)]="student.gender" value="Female">
+                    <label class="form-check-label">Female</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Date of Birth -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Date of Birth <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" [(ngModel)]="student.dateOfBirth" name="dateOfBirth" required>
+              </div>
+
+              <!-- Email -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" [(ngModel)]="student.email" name="email" required>
+              </div>
+
+              <!-- Phone Number -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Phone Number <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="student.phoneNumber" name="phoneNumber" required>
+              </div>
+
+              <!-- Blood Group -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Blood Group</label>
+                <select class="form-select" [(ngModel)]="student.bloodGroup" name="bloodGroup">
+                  <option value="">Select</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                </select>
+              </div>
+
+              <!-- Guardian Name -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Guardian Name</label>
+                <input type="text" class="form-control" [(ngModel)]="student.guardianName" name="guardianName">
+              </div>
+
+              <!-- Guardian Contact -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Guardian Contact</label>
+                <input type="text" class="form-control" [(ngModel)]="student.guardianContact" name="guardianContact">
+              </div>
+
+              <!-- Address -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" [(ngModel)]="student.address" name="address">
+              </div>
+
+              <!-- Enrollment Date -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Enrollment Date</label>
+                <input type="date" class="form-control" [(ngModel)]="student.enrollmentDate" name="enrollmentDate">
+              </div>
+
+              <!-- Current Class -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Class <span class="text-danger">*</span></label>
+                <select class="form-select" [(ngModel)]="student.currentClassId" name="currentClassId" required>
+                  <option value="">Select Class</option>
+                  <option *ngFor="let c of classes" [value]="c.id">{{ c.description }}</option>
+                </select>
+              </div>
+
+              <!-- Photo URL -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3">
+                <label class="form-label">Photo URL</label>
+                <input type="text" class="form-control" [(ngModel)]="student.photoUrl" name="photoUrl">
+              </div>
+
+              <!-- Is Active -->
+              <div class="col-xxl-3 col-lg-4 col-sm-6 mb-3 d-flex align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="student.isActive" name="isActive" id="isActive">
+                  <label class="form-check-label" for="isActive">Is Active</label>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="col-sm-12 mt-3">
+                <div class="d-flex gap-2 justify-content-end">
+                  <a routerLink="/students" class="btn btn-outline-secondary">Cancel</a>
+                  <button type="submit" class="btn btn-primary" [disabled]="studentForm.invalid">
+                    {{ isEditMode ? 'Update' : 'Add Student' }}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Row ends -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Row ends -->
+</div>
+<!-- App body ends -->
