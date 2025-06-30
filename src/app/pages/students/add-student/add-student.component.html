@@ -107,7 +107,7 @@
                 <label class="form-label">Class <span class="text-danger">*</span></label>
                 <select class="form-select" [(ngModel)]="student.currentClassId" name="currentClassId" required>
                   <option value="">Select Class</option>
-                  <option *ngFor="let c of classes" [value]="c.id">{{ c.description }}</option>
+                  <option *ngFor="let c of classes" [value]="c.id">{{ c.name }}</option>
                 </select>
               </div>
 
